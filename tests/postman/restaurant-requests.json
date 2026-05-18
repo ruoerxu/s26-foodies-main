@@ -1,0 +1,249 @@
+{
+  "info": {
+    "_postman_id": "f7d2d1bb-4b34-45fc-8b30-restaurant-requests",
+    "name": "Restaurant Requests Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "codex"
+  },
+  "item": [
+    {
+      "name": "LoginUser",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"username123\",\n  \"password\": \"password123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/login.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "login.php"
+          ]
+        },
+        "description": "Run this first to create the authenticated session used by the restaurant requests."
+      },
+      "response": []
+    },
+    {
+      "name": "GetRestaurantsDefault",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"latitude\": 42.945975,\n  \"longitude\": -78.868672,\n  \"party_name\": \"Pizza Party People\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        },
+        "description": "Default request without time filtering. Replace party_name if username123 belongs to a different real party."
+      },
+      "response": []
+    },
+    {
+      "name": "GetRestaurantsWithTimeWindow",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"latitude\": 42.945975,\n  \"longitude\": -78.868672,\n  \"party_name\": \"Pizza Party People\",\n  \"start_time\": \"18:00\",\n  \"end_time\": \"20:00\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        },
+        "description": "Valid time-window request. Update start_time and end_time during the tests as needed."
+      },
+      "response": []
+    },
+    {
+      "name": "GetRestaurantsInvalidWindow",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"latitude\": 42.945975,\n  \"longitude\": -78.868672,\n  \"party_name\": \"Pizza Party People\",\n  \"start_time\": \"18:00\",\n  \"end_time\": \"16:00\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetRestaurantsNoMatches",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"latitude\": 42.945975,\n  \"longitude\": -78.868672,\n  \"party_name\": \"Pizza Party People\",\n  \"start_time\": \"03:00\",\n  \"end_time\": \"04:00\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetRestaurantsInvalidFormat",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "party_name=Pizza Party People&start_time=18:00&end_time=20:00"
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        },
+        "description": "Intentionally not valid JSON. Send as-is to confirm the endpoint returns Invalid request body format."
+      },
+      "response": []
+    }
+  ]
+}

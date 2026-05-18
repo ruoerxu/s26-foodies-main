@@ -1,0 +1,1 @@
+{"success": true, "party": {"id": 1, "name": "Pasta Cult", "image_url": ""}}

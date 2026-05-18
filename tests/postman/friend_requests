@@ -1,0 +1,699 @@
+{
+  "info": {
+    "_postman_id": "6fcfd795-31f3-446f-9e3c-c2299b1abdb3",
+    "name": "Friend Requests Collection",
+    "description": "Test endpoints for list_friends.php, list_users.php, send_friend_request.php, list_friend_requests.php, accept_friend_request.php, ignore_friend_request.php",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52680587",
+    "_collection_link": "https://go.postman.co/collection/52680587-6fcfd795-31f3-446f-9e3c-c2299b1abdb3?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "list_friends.php",
+      "item": [
+        {
+          "name": "SampleUser",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/list_friends.php?search=SampleUser",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "list_friends.php"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "SampleUser"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sample",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/list_friends.php?search=Sample",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "list_friends.php"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "Sample"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "search_empty",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/list_friends.php?search=",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "list_friends.php"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "no_search",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/list_friends.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "list_friends.php"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "list_users.php",
+      "item": [
+        {
+          "name": "SampleFriend",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/list_users.php?search=SampleFriend",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "list_users.php"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "SampleFriend"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sample",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/list_users.php?search=Sample",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "list_users.php"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "Sample"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "search_empty",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/list_users.php?search=",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "list_users.php"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "no_search",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/list_users.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "list_users.php"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "list_friend_requests.php",
+      "item": [
+        {
+          "name": "list_friend_requests",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/list_friend_requests.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "list_friend_requests.php"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "send_friend_request.php",
+      "item": [
+        {
+          "name": "user_exists",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"user_id\": 23 }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/send_friend_request.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "send_friend_request.php"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "user_nonexistent",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"user_id\": 829084390829083492803489028432094823048 }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/send_friend_request.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "send_friend_request.php"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "invalid_format",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "user_id:3294809",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/send_friend_request.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "send_friend_request.php"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "accept_friend_request.php",
+      "item": [
+        {
+          "name": "valid",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"user_id\": 23 }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/accept_friend_request.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "accept_friend_request.php"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "nonexistent",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"user_id\": 1 }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/accept_friend_request.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "accept_friend_request.php"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "invalid_format",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "user_id: 1",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/accept_friend_request.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "accept_friend_request.php"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ignore_friend_request.php",
+      "item": [
+        {
+          "name": "valid",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"user_id\": 22 }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/ignore_friend_request.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "ignore_friend_request.php"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "nonexistent",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"user_id\": 1 }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/ignore_friend_request.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "ignore_friend_request.php"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "invalid_format",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/html",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ user_id: 1",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/ignore_friend_request.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "ignore_friend_request.php"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

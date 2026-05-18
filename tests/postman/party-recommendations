@@ -1,0 +1,246 @@
+{
+  "info": {
+    "_postman_id": "523c9bc3-9d2c-4565-86e1-e5f04fd5cf27",
+    "name": "Party Recommendations Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52680587",
+    "_collection_link": "https://go.postman.co/collection/52680587-523c9bc3-9d2c-4565-86e1-e5f04fd5cf27?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "missing_latitude",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"longitude\": -74.0060,\r\n    \"party_name\": \"TestParty\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "remote_location",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"latitude\": 0,\r\n    \"longitude\": 0,\r\n    \"party_name\": \"TestParty\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "urban_location",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"latitude\": 40.732944,\r\n    \"longitude\": -74.002083,\r\n    \"party_name\": \"TestParty\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "MarkRestaurantVisited",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"party_name\": \"TestParty\",\r\n    \"restaurant_id\": \"test_restaurant_1\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/mark_visited.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "mark_visited.php"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "MarkRestaurantVisited_duplicate",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"party_name\": \"TestParty\",\r\n    \"restaurant_id\": \"test_restaurant_1\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/mark_visited.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "mark_visited.php"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetVisitedRestaurants",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_visited.php?party_name=TestParty",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_visited.php"
+          ],
+          "query": [
+            {
+              "key": "party_name",
+              "value": "TestParty"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "RemoveVisitedRestaurant",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"party_name\": \"TestParty\",\r\n    \"restaurant_id\": \"test_restaurant_1\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/remove_visited.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "remove_visited.php"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

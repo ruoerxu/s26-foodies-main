@@ -1,0 +1,201 @@
+{
+  "info": {
+    "_postman_id": "5d40df89-4d20-44b4-98a8-navigate-button-requests",
+    "name": "Navigate Button Requests Collection",
+    "description": "Collection for Navigate Button tests. Run Login first so Postman stores the authenticated session cookie, then use GetParties to find the real party name to place into the Navigate restaurant requests.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "codex"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"username123\",\n  \"password\": \"password123!\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/login.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "login.php"
+          ]
+        },
+        "description": "Run this first so the later Navigate Button requests use an authenticated session."
+      },
+      "response": []
+    },
+    {
+      "name": "GetParties",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_parties.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_parties.php"
+          ]
+        },
+        "description": "Use this after Login to find the real party name for the account. Copy the returned name, such as FridayDinner2, into the Navigate restaurant request bodies."
+      },
+      "response": []
+    },
+    {
+      "name": "GetNavigateRestaurantsValid",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"latitude\": 42.945975,\n  \"longitude\": -78.868672,\n  \"party_name\": \"FridayDinner2\",\n  \"start_time\": \"18:00\",\n  \"end_time\": \"20:00\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        },
+        "description": "Use this for Navigate Button Tests 1 and 2. Replace party_name with the real party name returned by GetParties, such as FridayDinner2."
+      },
+      "response": []
+    },
+    {
+      "name": "GetNavigateRestaurantsInvalidParty",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"latitude\": 42.945975,\n  \"longitude\": -78.868672,\n  \"party_name\": \"PartyDoesNotExist999999\",\n  \"start_time\": \"18:00\",\n  \"end_time\": \"20:00\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        },
+        "description": "Use this for Navigate Button Test 3. Replace party_name with a nonexistent value, such as PartyDoesNotExist999999, to confirm no Navigate destination data is returned."
+      },
+      "response": []
+    },
+    {
+      "name": "GetNavigateRestaurantsNoResults",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"latitude\": 42.945975,\n  \"longitude\": -78.868672,\n  \"party_name\": \"FridayDinner2\",\n  \"start_time\": \"03:00\",\n  \"end_time\": \"04:00\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        },
+        "description": "Use this for Navigate Button Test 4. Replace party_name with the real name of a party that has no restaurant recommendations for the selected time window."
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "info": {
+    "_postman_id": "9a7faf1a-19a8-4d0d-81b3-99e7f040c3f0",
+    "name": "Sessions Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52680587",
+    "_collection_link": "https://go.postman.co/collection/52680587-9a7faf1a-19a8-4d0d-81b3-99e7f040c3f0?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "create_session.php",
+      "item": [
+        {
+          "name": "Valid",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"tags\": [\"Italian\", \"Japanese\", \"Mexican\"],\r\n    \"latitude\": 40.7128,\r\n    \"longitude\": -74.0060,\r\n    \"radius_in_meters\": 5,\r\n    \"party_name\": \"Food Lovers United\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/create_session.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "create_session.php"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid format",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"tags\": [\"Italian\", \"Japanese\", \"Mexican\"],\r\n    \"latitude\": 40.7128\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/create_session.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "create_session.php"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Party",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"tags\": [\"Italian\", \"Japanese\", \"Mexican\"],\r\n    \"latitude\": 40.7128,\r\n    \"longitude\": -74.0060,\r\n    \"radius_in_meters\": 5,\r\n    \"party_name\": \"asldfjlksjdfflkasdkj;fjklasjdflkjsadlfj\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/create_session.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "create_session.php"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "clear_session.php",
+      "item": [
+        {
+          "name": "Valid",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"party_name\": \"Food Lovers United\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/clear_session.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "clear_session.php"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Party",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"party_name\": \"asdlkfjlak;sjgkonfojge\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/clear_session.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "clear_session.php"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Format",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"party_n: \"asdlkfjlak;sjgkonf",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/clear_session.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "clear_session.php"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "is_session_active.php",
+      "item": [
+        {
+          "name": "Valid",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/is_session_active.php?party_name=Food Lovers United",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "is_session_active.php"
+              ],
+              "query": [
+                {
+                  "key": "party_name",
+                  "value": "Food Lovers United"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Party",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/is_session_active.php?party_name=asdkfjlaksjfkwrjgnje",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "is_session_active.php"
+              ],
+              "query": [
+                {
+                  "key": "party_name",
+                  "value": "asdkfjlaksjfkwrjgnje"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Format",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/is_session_active.php",
+              "protocol": "https",
+              "host": [
+                "aptitude",
+                "cse",
+                "buffalo",
+                "edu"
+              ],
+              "path": [
+                "CSE442",
+                "2026-Spring",
+                "cse-442aj",
+                "src",
+                "is_session_active.php"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

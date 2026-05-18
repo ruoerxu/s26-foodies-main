@@ -1,0 +1,181 @@
+{
+  "info": {
+    "_postman_id": "365d2aa5-c423-4bc3-b570-edca84ae2cc1",
+    "name": "Price Filter Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52680587",
+    "_collection_link": "https://go.postman.co/collection/52680587-365d2aa5-c423-4bc3-b570-edca84ae2cc1?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "one_price",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"latitude\": 42.945975,\r\n    \"longitude\": -78.868672,\r\n    \"party_name\": \"Pizza Party People\",\r\n    \"price\": [\"$$$$\"]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "two_prices",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"latitude\": 42.945975,\r\n    \"longitude\": -78.868672,\r\n    \"party_name\": \"Pizza Party People\",\r\n    \"price\": [\"$\", \"$$$\"]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "all_prices",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"latitude\": 42.945975,\r\n    \"longitude\": -78.868672,\r\n    \"party_name\": \"Pizza Party People\",\r\n    \"price\": [\"$\", \"$$\", \"$$$\", \"$$$$\"]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "empty_price",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"latitude\": 42.945975,\r\n    \"longitude\": -78.868672,\r\n    \"party_name\": \"Pizza Party People\",\r\n    \"price\": []\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "no_price",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"latitude\": 42.945975,\r\n    \"longitude\": -78.868672,\r\n    \"party_name\": \"Pizza Party People\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_recommendations.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_recommendations.php"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

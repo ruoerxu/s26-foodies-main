@@ -1,0 +1,7 @@
+src/config.php
+.env
+.env.*
+!.env.example
+.codex
+src/uploads/*
+!src/uploads/.gitkeep

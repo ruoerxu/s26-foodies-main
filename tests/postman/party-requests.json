@@ -1,0 +1,461 @@
+{
+  "info": {
+    "_postman_id": "81ab96fc-837c-4ea2-9d1f-bf8474465fd1",
+    "name": "Party Requests Collection",
+    "description": "Collection for login, party deletion, and party listing tests. Run LoginOwner or LoginNonOwner first so Postman stores the session cookie. Replace sample credentials and party IDs before sending requests.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52680587"
+  },
+  "item": [
+    {
+      "name": "LoginOwner",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Login succeeded\", function () {",
+              "    const json = pm.response.json();",
+              "    pm.expect(json.success).to.eql(true);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"username123\",\r\n    \"password\": \"replace_with_owner_password\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/login.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "login.php"
+          ]
+        },
+        "description": "Run this request before owner-only tests. Replace the sample password with the real password for username123."
+      },
+      "response": []
+    },
+    {
+      "name": "LoginNonOwner",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Login succeeded\", function () {",
+              "    const json = pm.response.json();",
+              "    pm.expect(json.success).to.eql(true);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"replace_with_non_owner_username\",\r\n    \"password\": \"replace_with_non_owner_password\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/login.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "login.php"
+          ]
+        },
+        "description": "Run this request before the non-owner delete test. Replace the sample username and password with credentials for a user who does not own FridayDinner."
+      },
+      "response": []
+    },
+    {
+      "name": "DeletePartyValid",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response confirms deletion\", function () {",
+              "    const json = pm.response.json();",
+              "    pm.expect(json.success).to.eql(true);",
+              "    pm.expect(json.message).to.eql(\"Party deleted successfully\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"party_id\": 123,\r\n    \"party_name\": \"FridayDinner\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/delete_party.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "delete_party.php"
+          ]
+        },
+        "description": "Use after LoginOwner. Replace party_id with the real ID of a party owned by username123, and keep party_name set to the exact real party name."
+      },
+      "response": []
+    },
+    {
+      "name": "DeletePartyWrongName",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 400\", function () {",
+              "    pm.response.to.have.status(400);",
+              "});",
+              "",
+              "pm.test(\"Response says the party name does not match\", function () {",
+              "    const json = pm.response.json();",
+              "    pm.expect(json.message).to.include(\"does not match\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"party_id\": 123,\r\n    \"party_name\": \"NotFridayDinner\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/delete_party.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "delete_party.php"
+          ]
+        },
+        "description": "Use after LoginOwner. Replace party_id with the real ID of FridayDinner, but keep party_name incorrect to confirm the endpoint rejects mismatched names."
+      },
+      "response": []
+    },
+    {
+      "name": "DeletePartyNonOwner",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 403\", function () {",
+              "    pm.response.to.have.status(403);",
+              "});",
+              "",
+              "pm.test(\"Response says the user is not allowed\", function () {",
+              "    const json = pm.response.json();",
+              "    pm.expect(json.message).to.include(\"not allowed\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"party_id\": 123,\r\n    \"party_name\": \"FridayDinner\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/delete_party.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "delete_party.php"
+          ]
+        },
+        "description": "Use after LoginNonOwner. Replace party_id with the real ID of a party owned by another user, and use the correct party_name."
+      },
+      "response": []
+    },
+    {
+      "name": "DeletePartyNotFound",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 404\", function () {",
+              "    pm.response.to.have.status(404);",
+              "});",
+              "",
+              "pm.test(\"Response says the party was not found\", function () {",
+              "    const json = pm.response.json();",
+              "    pm.expect(json.message).to.include(\"not found\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"party_id\": 999999,\r\n    \"party_name\": \"FridayDinner\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/delete_party.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "delete_party.php"
+          ]
+        },
+        "description": "Use after LoginOwner. Replace party_id with a number that is not present in the database."
+      },
+      "response": []
+    },
+    {
+      "name": "DeletePartyInvalidFormat",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 400\", function () {",
+              "    pm.response.to.have.status(400);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "party_id=123&party_name=FridayDinner"
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/delete_party.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "delete_party.php"
+          ]
+        },
+        "description": "Use after LoginOwner. Leave the invalid body format unchanged and confirm the endpoint returns 400."
+      },
+      "response": []
+    },
+    {
+      "name": "GetParties",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Deleted party is not returned\", function () {",
+              "    const json = pm.response.json();",
+              "    const parties = Array.isArray(json.parties) ? json.parties : [];",
+              "    const names = parties.map((party) => party && party.name);",
+              "    pm.expect(names).to.not.include(\"FridayDinner\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_parties.php",
+          "protocol": "https",
+          "host": [
+            "aptitude",
+            "cse",
+            "buffalo",
+            "edu"
+          ],
+          "path": [
+            "CSE442",
+            "2026-Spring",
+            "cse-442aj",
+            "src",
+            "get_parties.php"
+          ]
+        },
+        "description": "Use after LoginOwner to find a real party ID before deletion, or after DeletePartyValid to confirm that FridayDinner no longer appears in the returned party list."
+      },
+      "response": []
+    }
+  ]
+}

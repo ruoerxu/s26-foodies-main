@@ -1,0 +1,246 @@
+{
+  "info": {
+    "_postman_id": "f1a2b3c4-d5e6-7890-abcd-ef1234567890",
+    "name": "finalized_page",
+    "description": "Postman tests for the finalized page backend endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "SaveFinalizedRestaurant",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response indicates success\", function () {",
+              "    var json = pm.response.json();",
+              "    pm.expect(json.success).to.be.true;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"party_name\": \"TestParty\",\n    \"restaurant_name\": \"Sakura Ramen House\",\n    \"rating\": 4.8,\n    \"cost\": \"$$\",\n    \"distance\": 0.3,\n    \"cuisine\": \"ramen_restaurant\",\n    \"tags\": [\"japanese_restaurant\", \"ramen_restaurant\"],\n    \"match_score\": 96\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/save_finalized_restaurant.php",
+          "protocol": "https",
+          "host": ["aptitude", "cse", "buffalo", "edu"],
+          "path": ["CSE442", "2026-Spring", "cse-442aj", "src", "save_finalized_restaurant.php"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetFinalizedPlan",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response contains restaurant and meeting details\", function () {",
+              "    var json = pm.response.json();",
+              "    pm.expect(json.success).to.be.true;",
+              "    pm.expect(json.plan).to.have.property('restaurant_name');",
+              "    pm.expect(json.plan).to.have.property('meeting_date');",
+              "    pm.expect(json.plan).to.have.property('meeting_time');",
+              "    pm.expect(json.plan).to.have.property('meeting_location');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"party_name\": \"TestParty\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/get_finalized_plan.php",
+          "protocol": "https",
+          "host": ["aptitude", "cse", "buffalo", "edu"],
+          "path": ["CSE442", "2026-Spring", "cse-442aj", "src", "get_finalized_plan.php"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UpdateFinalizedDate",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Date updated successfully\", function () {",
+              "    var json = pm.response.json();",
+              "    pm.expect(json.success).to.be.true;",
+              "    pm.expect(json.message).to.include('date');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"party_name\": \"TestParty\",\n    \"date\": \"Fri, Oct 24\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/update_finalized_date.php",
+          "protocol": "https",
+          "host": ["aptitude", "cse", "buffalo", "edu"],
+          "path": ["CSE442", "2026-Spring", "cse-442aj", "src", "update_finalized_date.php"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UpdateFinalizedTime",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Time updated successfully\", function () {",
+              "    var json = pm.response.json();",
+              "    pm.expect(json.success).to.be.true;",
+              "    pm.expect(json.message).to.include('time');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"party_name\": \"TestParty\",\n    \"time\": \"7:30 PM - 9:30 PM\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/update_finalized_time.php",
+          "protocol": "https",
+          "host": ["aptitude", "cse", "buffalo", "edu"],
+          "path": ["CSE442", "2026-Spring", "cse-442aj", "src", "update_finalized_time.php"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UpdateFinalizedLocation",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Location updated successfully\", function () {",
+              "    var json = pm.response.json();",
+              "    pm.expect(json.success).to.be.true;",
+              "    pm.expect(json.message).to.include('location');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"party_name\": \"TestParty\",\n    \"location\": \"123 Flavor Street, Foodie City\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/update_finalized_location.php",
+          "protocol": "https",
+          "host": ["aptitude", "cse", "buffalo", "edu"],
+          "path": ["CSE442", "2026-Spring", "cse-442aj", "src", "update_finalized_location.php"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ConfirmAndNotifyGroup",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Plan confirmed and notifications sent\", function () {",
+              "    var json = pm.response.json();",
+              "    pm.expect(json.success).to.be.true;",
+              "    pm.expect(json).to.have.property('emails_sent');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"party_name\": \"TestParty\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "https://aptitude.cse.buffalo.edu/CSE442/2026-Spring/cse-442aj/src/confirm_finalized_plan.php",
+          "protocol": "https",
+          "host": ["aptitude", "cse", "buffalo", "edu"],
+          "path": ["CSE442", "2026-Spring", "cse-442aj", "src", "confirm_finalized_plan.php"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
